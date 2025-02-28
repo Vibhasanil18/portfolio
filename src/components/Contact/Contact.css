@@ -1,0 +1,195 @@
+.contact {
+    padding: 100px 10%;
+    background: linear-gradient(135deg, #100017, #1a031f); 
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative glowing circles */
+.contact::before, .contact::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.contact::before {
+    top: -80px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(245, 185, 33, 0.5), transparent);
+}
+
+.contact::after {
+    bottom: -80px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(111, 0, 255, 0.5), transparent);
+}
+
+/* Title */
+.contact-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f5b921;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.contact-title h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #f5b921;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Layout */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;  /* Increased gap between form and info */
+    position: relative;
+    z-index: 2;
+}
+
+.contact-form, .contact-info {
+    background: rgba(25, 10, 35, 0.95);
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid rgba(245, 185, 33, 0.3);
+    box-shadow: 0 0 20px rgba(111, 0, 255, 0.3);
+    flex: 1;
+    min-width: 360px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover, .contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(245, 185, 33, 0.6);
+}
+
+.contact-form h2, .contact-info h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f5b921;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Form Inputs */
+.form-group {
+    margin-bottom: 15px;  /* Added spacing between input fields */
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(245, 185, 33, 0.4);
+    border-radius: 8px;
+    background: #140d26;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #f5b921;
+    box-shadow: 0 0 12px rgba(245, 185, 33, 0.6);
+    outline: none;
+}
+
+/* Textarea height */
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #f5b921, #f3a500);
+    color: #1a031f;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 5px; /* Slight gap above button */
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #f3a500, #f5b921);
+}
+
+/* Status message */
+.status-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #f5b921;
+}
+
+/* Contact Info */
+.contact-info p {
+    font-size: 14px;
+    margin: 10px 0;  /* Spacing between contact details */
+    color: #e2d5f3;
+}
+
+/* Contact Links */
+.contact-links {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-links a {
+    font-size: 14px;
+    color: #f5b921;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 6%;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;  /* Increased gap between stacked form and info */
+    }
+
+    .contact-form, .contact-info {
+        width: 100%;
+    }
+}

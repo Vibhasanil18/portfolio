@@ -1,0 +1,177 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    background: linear-gradient(to right, #12002b, #1c0038);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+/* Logo with gradient animation */
+.Logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: transparent;
+    background-image: linear-gradient(120deg, #ffcc70, #ff7eb3, #b415ff);
+    background-size: 300% 300%;
+    background-clip: text;
+    animation: logoGlow 8s ease infinite;
+    letter-spacing: 1.5px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Glowing shadow effect for logo */
+.Logo::before {
+    content: 'Vibha';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    color: rgba(255, 105, 180, 0.2);
+    filter: blur(12px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes logoGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar Menu */
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f0e6f6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-menu li:hover {
+    color: #f5b921;
+}
+
+/* Elegant underline hover effect */
+.nav-menu li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #f5b921, #ff7eb3);
+    transition: width 0.4s ease;
+}
+
+.nav-menu li:hover::after {
+    width: 100%;
+}
+
+/* Anchor link styling (for smooth scroll links) */
+.nav-menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Connect button */
+.nav-connect {
+    display: inline-block; /* Ensure anchor behaves like a button */
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #f5b921, #b415ff);
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.nav-connect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(245, 185, 33, 0.5);
+}
+
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 20px 40px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        gap: 25px;
+        font-size: 14px;
+    }
+
+    .Logo {
+        font-size: 34px;
+    }
+
+    .Logo::before {
+        font-size: 34px;
+        left: 0;
+    }
+
+    .nav-connect {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile Menu (Optional Future Enhancement) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .nav-connect {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .Logo::before {
+        display: none; /* Hide the glow effect on mobile to prevent overflow */
+    }
+}
