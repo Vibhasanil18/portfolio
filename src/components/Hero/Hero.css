@@ -1,10 +1,11 @@
+/* Main container */
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 100px 20px;
+    padding: 60px 15px; /* Reduced padding for smaller screens */
     background: linear-gradient(135deg, #111111, #1a1a1a);
     color: #f0f0f0;
     border-radius: 16px;
@@ -14,6 +15,7 @@
     max-width: 100%;
     margin: 0 auto;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 /* Soft glowing gradient backgrounds */
@@ -40,13 +42,13 @@
 
 /* Profile picture */
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 120px; /* Adjusted for mobile */
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #b415ff;
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     transition: transform 0.3s ease;
 }
 
@@ -56,13 +58,13 @@
 
 /* Heading */
 .hero h1 {
-    font-size: 60px;
+    font-size: 36px; /* Adjusted for better mobile readability */
     font-weight: 700;
-    margin: 15px 0;
+    margin: 10px 0;
     color: #fff;
     text-align: center;
     line-height: 1.2;
-    max-width: 900px;
+    max-width: 90%;
     position: relative;
     z-index: 1;
 }
@@ -76,21 +78,6 @@
     font-weight: 800;
 }
 
-/* Light text glow */
-.hero h1 span::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-50%);
-    background: inherit;
-    filter: blur(20px);
-    opacity: 0.2;
-    z-index: -1;
-}
-
 /* Gradient animation */
 @keyframes gradientFlow {
     0% { background-position: 0% 50%; }
@@ -100,10 +87,10 @@
 
 /* Description paragraph */
 .hero p {
-    font-size: 18px;
-    max-width: 700px;
+    font-size: 16px; /* Improved readability on smaller screens */
+    max-width: 90%;
     margin: 10px auto 0;
-    line-height: 1.8;
+    line-height: 1.6;
     color: #d0d0d0;
     opacity: 0.85;
 }
@@ -111,27 +98,29 @@
 /* Button wrapper */
 .hero-action {
     display: flex;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 15px; /* Reduced spacing for mobile */
+    margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
-/* Connect With Me button */
+/* Connect With Me & Resume buttons */
 .hero-connect,
 .hero-resume {
-    padding: 14px 36px;
+    padding: 12px 30px;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     letter-spacing: 0.8px;
     text-align: center;
-    text-decoration: none; /* For <a> tag */
+    text-decoration: none;
     display: inline-block;
     white-space: nowrap;
+    max-width: 250px; /* Prevents buttons from being too wide */
 }
 
 /* Connect button styling */
@@ -165,29 +154,54 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .hero {
-        padding: 60px 15px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 16px;
+        padding: 50px 10px; /* Further reduced padding */
+        width: 100%;
+        text-align: center;
     }
 
     .profile-pic {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
     }
 
+    .hero h1 {
+        font-size: 30px;
+        max-width: 90%;
+        margin-bottom: 5px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+  
     .hero-action {
-        flex-direction: column;
-        gap: 15px;
-    }
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            align-items: center; /* Ensures buttons stay centered */
+            text-align: center;
+            width: 100%;
+        }
+    
+        .hero-connect,
+        .hero-resume {
+            width: 100%;
+            max-width: 250px; /* Prevents full-width stretching */
+            padding: 12px 30px;
+            font-size: 14px;
+            text-align: center;
+            display: flex;
+            justify-content: center; /* Centers text inside buttons */
+        }
+    
+    
 
-    .hero-connect,
-    .hero-resume {
-        width: 100%;
+    .hero h1,
+    .hero p {
+        margin: 5px auto;
     }
 }

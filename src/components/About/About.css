@@ -3,26 +3,29 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 60px 20px;
+    padding: 50px 20px;
     background: linear-gradient(135deg, #0c0c0c, #1a012a, #2e0649);
     color: #fff;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
+/* About Container */
 .about-me-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     background: rgba(20, 20, 30, 0.9);
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(138, 43, 226, 0.5);
-    max-width: 1100px;
-    width: 100%;
+    max-width: 100%;
+    width: 90%;
     gap: 40px;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .about-me-container:hover {
@@ -30,6 +33,7 @@
     box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
 }
 
+/* Profile Image */
 .about-me-image {
     flex: 1;
     display: flex;
@@ -51,9 +55,12 @@
     transform: scale(1.05);
 }
 
+/* About Content */
 .about-me-content {
     flex: 2;
     color: #e0e0e0;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 .about-me-content h1 {
@@ -75,12 +82,13 @@
     color: #dcdcdc;
 }
 
+/* Highlighted Text */
 .highlight {
-    color: #bb86fc;
+    color: #f1d100;
     font-weight: 600;
 }
 
-/* Tech Stack Section */
+/* Tech Stack */
 .tech-stack {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -133,31 +141,81 @@
     color: #bb86fc;
 }
 
-/* Contact Info */
+/* Contact Info - Fully Responsive */
 .contact-info {
-    margin-top: 20px;
-    font-size: 15px;
-    color: #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 16px;
+    margin-top: 15px;
+    word-wrap: break-word;
+}
+
+/* Contact Info Items */
+.contact-info div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .contact-info a {
     color: #bb86fc;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 .contact-info a:hover {
-    color: #ff6bcb;
-    text-decoration: underline;
+    color: #f1d100;
+}
+
+/* Icons Styling */
+.contact-info i {
+    font-size: 18px;
+    color: #bb86fc;
+}
+
+/* Separator Styling */
+.separator {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .about-me-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 25px;
+        width: 100%;
+    }
+
+    .about-me-content {
+        max-width: 90%;
+    }
+
+    .about-me-image img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
 @media (max-width: 768px) {
     .about-me-container {
         flex-direction: column;
         gap: 25px;
-        padding: 30px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .about-me-content h1 {
+        font-size: 28px;
     }
 
     .about-me-image img {
@@ -169,159 +227,23 @@
         grid-template-columns: 1fr;
     }
 
-    .about-me-content h1 {
-        font-size: 28px;
+    .contact-info {
+        flex-direction: column;
+        gap: 8px;
     }
 }
 
-/* .about {
-    padding: 60px 10%;
-    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-}
+@media (max-width: 480px) {
+    .about-me-content h1 {
+        font-size: 24px;
+    }
 
-.about-title {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffcc70;
-}
+    .about-me-content p {
+        font-size: 14px;
+    }
 
-.about-title img {
-    width: 40px;
-    height: 40px;
+    .about-me-image img {
+        width: 120px;
+        height: 120px;
+    }
 }
-
-.about-sections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
-}
-
-.about-left {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.about-left img {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    border: 6px solid #ffcc70;
-    box-shadow: 0 0 15px rgba(255, 204, 112, 0.5);
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.about-left img:hover {
-    transform: scale(1.05);
-}
-
-.about-right {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.about-para p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 10px;
-    color: #ddd;
-}
-
-.about-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.about-skill {
-    background: rgba(255, 204, 112, 0.1);
-    padding: 10px 15px;
-    border-radius: 8px;
-    flex: 1 1 calc(33% - 15px);
-    min-width: 180px;
-    text-align: left;
-    color: #ffcc70;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(255, 204, 112, 0.2);
-}
-
-.about-skill p {
-    margin: 0;
-    margin-bottom: 6px;
-    font-size: 14px;
-}
-
-.about-skill hr {
-    border: none;
-    height: 4px;
-    background: linear-gradient(90deg, #ffcc70, #ff69b4);
-    border-radius: 2px;
-}
-
-.about-certificates {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 204, 112, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 204, 112, 0.1);
-}
-
-.about-certificates h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: #ffcc70;
-    border-bottom: 2px solid #ffcc70;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-.about-certificates ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-certificates li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 204, 112, 0.1);
-    margin: 10px 0;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #fff;
-    transition: background 0.3s ease;
-}
-
-.about-certificates li:hover {
-    background: rgba(255, 204, 112, 0.2);
-}
-
-.download-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-    background: linear-gradient(135deg, #ffcc70, #ff69b4);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.download-btn:hover {
-    background: linear-gradient(135deg, #ff69b4, #ffcc70);
-    transform: scale(1.05);
-} */

@@ -9,7 +9,7 @@ const Contact = () => {
         e.preventDefault();
 
         const formData = new FormData(formRef.current);
-        formData.append("access_key", "852b152e-3e74-4609-bc1d-a90c977d36bc");  // Your actual Web3Forms access key
+        formData.append("access_key", "852b152e-3e74-4609-bc1d-a90c977d36bc");  // Your Web3Forms access key
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -20,30 +20,40 @@ const Contact = () => {
             const result = await response.json();
 
             if (result.success) {
-                setStatus('Message sent successfully!');
+                setStatus('✅ Message sent successfully!');
                 formRef.current.reset();
             } else {
-                setStatus(`Error: ${result.message}`);  // Show actual Web3Forms error message (important)
+                setStatus(`❌ Error: ${result.message}`);
             }
         } catch (error) {
-            setStatus('Something went wrong. Please try again later.');
+            setStatus('⚠️ Something went wrong. Please try again later.');
             console.error('Form submission error:', error);
         }
     };
 
     return (
-        <div id="contact" className="contact">
-            <div className="contact-title">
-                <h1>Get in Touch</h1>
-            </div>
-
+        <section id="contact" className="contact">
             <div className="contact-container">
+                {/* Left Side - Contact Information */}
+                <div className="contact-info">
+                    <h2>Let's Connect</h2>
+                    <p>Email: <a href="mailto:vibhasanil1996@gmail.com">vibhasanil1996@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+919632217127">+91 9632217127</a></p>
+
+                    <div className="contact-links">
+                        <a href="https://github.com/Vibhasanil18" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/vibha-sanil/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="mailto:vibhasanil1996@gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a>
+                    </div>
+                </div>
+
+                {/* Right Side - Contact Form */}
                 <div className="contact-form">
                     <h2>Contact Me</h2>
                     {status && <p className="status-message">{status}</p>}
 
                     <form ref={formRef} onSubmit={handleSubmit}>
-                        <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio" />
+                        <input type="hidden" name="subject" value="New Contact Form Submission" />
                         <input type="hidden" name="from_website" value="Vibha Sanil Portfolio" />
 
                         <div className="form-group">
@@ -58,20 +68,8 @@ const Contact = () => {
                         <button type="submit">Send Message</button>
                     </form>
                 </div>
-
-                <div className="contact-info">
-                    <h2>Let's Connect</h2>
-                    <p>Email: vibhasanil1996@gmail.com</p>
-                    <p>Phone: +91 9632217127</p>
-
-                    <div className="contact-links">
-                        <a href="https://github.com/Vibhasanil18" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://www.linkedin.com/in/vibha-sanil/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="mailto:vibhasanil1996@gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
     );
 };
 
